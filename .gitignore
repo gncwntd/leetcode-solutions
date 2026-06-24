@@ -1,0 +1,22 @@
+playground/
+C/
+llama2.c/
+*.class
+Main.java
+Main.class
+
+# compiled binaries (no extension ones too)
+*.out
+*.o
+*.exe
+
+# ignore all executables in repo
+easy/*
+medium/*
+hard/*
+!easy/*.c
+!medium/*.c
+!hard/*.c
+
+.vscode/
+.idea/
