@@ -18,5 +18,6 @@ hard/*
 !medium/*.c
 !hard/*.c
 
+
 .vscode/
 .idea/
