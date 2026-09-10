@@ -1,40 +1,28 @@
-#include <stdio.h>
-#include <stdlib.h>
+int climbStairs(int n) {
+    if (n <= 2) return n;
 
-int* twoSum(int* nums, int numSize, int target, int* returnSize){
-    
-    *returnSize = 2;//dönecek sayıların array size ı olmalı
+    int prev2 = 1;
+    int prev1 = 2;
 
-    int* answer = (int*)malloc(2*sizeof(int));
-
-    for(int i = 0;i<numSize;i++){
-        for(int j= i+1;j<numSize;j++){
-            if(nums[i] + nums[j] == target){
-                answer[0] = i;
-                answer[1] = j;
-                
-                return answer;
-            }
-        }
+    for (int i = 3; i <= n; i++) {
+        int current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
     }
 
-    *returnSize = 0;
-    free(answer);
-    return NULL;
-
+    return prev1;
 }
 
-int main(){
-    int nums[] = {2,15,7,11};
-    int target = 9;
-    int numsize = sizeof(nums) / sizeof(nums[0]);
-    int returnsize = 0;
-
-    int* result = twoSum(nums,numsize,target,&returnsize);
-
-    if(result != NULL){
-        printf("[%d,%d]\n",result[0],result[1]);
-        free(result);
-    }
-    return 0;
-}
+/*
+70. Climbing Stairs
+Runtime
+0
+ms
+Beats
+100.00%
+Memory
+8.55
+MB
+Beats
+39.72%
+*/
